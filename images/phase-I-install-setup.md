@@ -11,6 +11,14 @@ To check if Nikto is already installed on your Kali Linux system, you can follow
      ```
    - This command attempts to run Nikto. If it's installed, you'll see a help screen that lists all command options. If not, you'll receive an error indicating that Nikto is not found.
 
+Side NOTEW
+
+<details>
+
+   ![image](https://github.com/user-attachments/assets/3eb2a9ee-1642-4753-b10f-0847716e5d8f)
+
+   
+</details>
 ### Installing Nikto on Kali Linux
 
 If Nikto is not installed, you can install it using the following steps:
