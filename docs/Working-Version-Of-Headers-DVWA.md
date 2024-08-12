@@ -731,12 +731,125 @@ Following these steps will effectively implement and verify security headers on 
 
 ---
 
-## TEMPLATE
+## Script for Security Presentation on Securing Apache on Metasploitable2
 
 <details>
   <summary>Click for Details</summary>
 
+### Script for Security Presentation on Securing Apache on Metasploitable2
 
+---
+
+**[Opening Slide: Title and Introduction]**
+
+**Speaker:**
+"Good morning everyone, today we're going to take a 'header' into securing Apache on our good old friend, Metasploitable2. It's more exposed than your Facebook profile in 2007, but fear not, we'll fix that!"
+
+---
+
+**[Slide 2: Initial Vulnerability Assessment]**
+
+**Speaker:**
+"First things first, let's see what we're dealing with. We'll start with a Nikto scan from our Kali machine. For those unfamiliar, Nikto is like that one friend who points out all your flaws... but actually helps you fix them."
+
+**Command on screen:**
+```bash
+nikto -h 192.168.56.102
+```
+
+**Speaker:**
+"Expect to see some complaints about missing security headers. These headers are like the bouncers of the club, keeping the riff-raff out of our server's business."
+
+---
+
+**[Slide 3: Enabling mod_headers]**
+
+**Speaker:**
+"Step one: Enable `mod_headers` on Metasploitable2. This module lets us add those bouncers—uh, I mean, security headers."
+
+**Command on screen:**
+```bash
+sudo a2enmod headers
+sudo /etc/init.d/apache2 restart
+```
+
+**Speaker:**
+"If `mod_headers` isn't enabled, Apache is like a party without bouncers. Anyone and their script can walk in!"
+
+---
+
+**[Slide 4: Configuring Security Headers]**
+
+**Speaker:**
+"Let’s add some headers. We'll set `X-Frame-Options` to SAMEORIGIN to prevent clickjacking attacks, and `X-Content-Type-Options` to nosniff to stop MIME type sniffing—because the only thing we want sniffing around are those free conference snacks, am I right?"
+
+**Command on screen:**
+```apache
+Header always append X-Frame-Options SAMEORIGIN
+Header set X-Content-Type-Options nosniff
+FileETag None
+```
+
+**Speaker:**
+"We’re also going to turn off ETags with `FileETag None` to prevent inode information leaks, because the only leaks we appreciate are memory leaks... Just kidding, we hate those too."
+
+---
+
+**[Slide 5: Restricting HTTP Methods]**
+
+**Speaker:**
+"Next, let’s limit the HTTP methods. Because sometimes, you need to tell your server it can't just GET and POST with everyone."
+
+**Command on screen:**
+```apache
+<Directory /var/www/>
+    Order Allow,Deny
+    Allow from all
+    <LimitExcept GET POST>
+        Deny from all
+    </LimitExcept>
+</Directory>
+```
+
+**Speaker:**
+"This setup denies all methods except GET and POST. It’s like telling your kids they can only play in the front yard."
+
+---
+
+**[Slide 6: Restarting Apache and Testing]**
+
+**Speaker:**
+"Let's restart Apache to apply our changes. It's like rebooting your computer—sometimes, it's the magic fix."
+
+**Command on screen:**
+```bash
+sudo /etc/init.d/apache2 restart
+```
+
+**Speaker:**
+"Now, we’ll use `curl` to check our headers from within Metasploitable2 and then again from Kali."
+
+**Commands on screen:**
+```bash
+curl -I http://localhost
+curl -I http://192.168.56.102
+```
+
+**Speaker:**
+"These commands should show our security headers in action, protecting our server one request at a time."
+
+---
+
+**[Closing Slide: Review and Q&A]**
+
+**Speaker:**
+"And that’s how you secure Apache on Metasploitable2. Any questions, or is everyone just ready for lunch? Remember, a secure server is like a good joke—it doesn’t need a punchline, just good execution!"
+
+**[End of Presentation]**
+
+---
+
+This script combines technical steps with light-hearted commentary aimed at engaging an audience familiar with security concepts but new to specific Apache security configurations.
 
 </details>
 
