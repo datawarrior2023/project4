@@ -654,8 +654,7 @@ FileETag None
 
 # Restrict HTTP methods to only necessary ones
 <Directory /var/www/>
-    Order Deny,Allow
-    Deny from all
+    Order Allow,Deny
     Allow from all
     <LimitExcept GET POST>
         Deny from all
