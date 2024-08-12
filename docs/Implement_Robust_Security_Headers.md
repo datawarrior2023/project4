@@ -92,7 +92,7 @@ In general, a layered security approach that includes updating and patching, con
 
 ## STESP AND PROCEDURES USED IN RESEARCH
 
-### **Regularly Update and Patch**:
+### **Regularly Update and Patch**: **SUMMARIZE FOR NOW - SKIPPING THE DETAILS**
 Keeping software up-to-date ensures that known security flaws are patched, reducing the chances that attackers can exploit old vulnerabilities that have already been addressed in newer versions.
 
 <details>
@@ -109,7 +109,7 @@ Keeping software up-to-date ensures that known security flaws are patched, reduc
 
 ---
 
-### **Minimize Server Information Disclosure**:
+### **Minimize Server Information Disclosure**: **SUMMARIZE FOR NOW - SKIPPING THE DETAILS**
 Limiting the information that the server discloses about its software versions and configuration details helps prevent attackers from easily identifying known vulnerabilities specific to those versions or setups.
 
 <details>
@@ -126,7 +126,7 @@ Limiting the information that the server discloses about its software versions a
 
 ---
 
-### **Restrict HTTP Methods**:
+### **Restrict HTTP Methods**: **SUMMARIZE FOR NOW - SKIPPING THE DETAILS**
 Disabling unnecessary HTTP methods can prevent certain types of web application attacks, such as Cross-Site Tracing (XST) attacks that exploit the TRACE method.
 
 <details>
@@ -143,20 +143,26 @@ Disabling unnecessary HTTP methods can prevent certain types of web application 
 
 ---
 
-### **Implement Robust Security Headers**:
+### **Implement Robust Security Headers**: **WORKNG ON THIS ONE - DEMO OR FOCUS ON THIS** 
 Headers like `X-Frame-Options` and `X-Content-Type-Options` can prevent clickjacking and MIME type sniffing attacks, respectively, significantly enhancing the security of the server.
 
 
 <details>
   <summary>How to secure DVWA Server</summary>
+
+  
 </details>
 
 <details>
   <summary>How to secure Metasploit2 Server</summary>
+
+  
 </details>
 
 <details>
   <summary>How to secure a Ubuntu 20.24 Server Out of the Box</summary>
+
+  
 </details>
 
 ---
