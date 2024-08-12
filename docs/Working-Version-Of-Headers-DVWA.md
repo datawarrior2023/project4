@@ -763,7 +763,9 @@ By following these steps and utilizing the troubleshooting guide, you can effici
 
 </details>
 
-## Steps to start up DVWA aftet it is installed on Kali
+---
+
+## TEMPLATE
 
 <details>
   <summary>Click for Details</summary>
@@ -772,20 +774,3 @@ By following these steps and utilizing the troubleshooting guide, you can effici
 
 </details>
 
-## Steps to start up DVWA aftet it is installed on Kali
-
-<details>
-  <summary>Click for Details</summary>
-
-
-
-</details>
-
-## Steps to start up DVWA aftet it is installed on Kali
-
-<details>
-  <summary>Click for Details</summary>
-
-
-
-</details>
