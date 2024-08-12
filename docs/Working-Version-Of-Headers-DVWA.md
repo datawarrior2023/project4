@@ -514,6 +514,264 @@ By understanding these vulnerabilities and potential exploits, you can better se
 
 </details>
 
+## Reults of Nikto Scan and Findings From DVWA
+
+<details>
+  <summary>Click for Details</summary>
+
+The results from your Nikto scan against the Metasploitable2 machine reveal a couple of common vulnerabilities associated with web server configurations. Here's a breakdown of the findings and their potential impact:
+
+### 1. Missing HTTP Headers
+
+- **X-Frame-Options Header Missing**:
+  - **Vulnerability**: This header helps protect your website against clickjacking attacks. Without it, attackers can embed your website in a frame on their malicious site, potentially tricking users into interacting with your site in unintended ways.
+  - **Impact**: Users could be tricked into executing actions on your site without their knowledge, such as changing their passwords or making transactions.
+
+- **X-Content-Type-Options Header Missing**:
+  - **Vulnerability**: This header prevents the browser from interpreting files as a different MIME type than what is specified by the server. Without this header, browsers can MIME-sniff the content and execute non-executable MIME types, leading to XSS (Cross-Site Scripting) attacks.
+  - **Impact**: Allows an attacker to perform XSS attacks by uploading specially crafted files that the browser might execute as an executable.
+
+### 2. Server Configuration
+
+- **ETags (Entity Tags) Configuration**:
+  - **Vulnerability**: The server's use of ETags can leak inode information through the HTTP headers. Inodes are identifiers for files and directories in UNIX-like operating systems.
+  - **Impact**: An attacker can gain insights into the system's file system structure, which could help in designing further attacks or understanding the server setup.
+
+### 3. Allowed HTTP Methods
+
+- **OPTIONS Method Enabled**:
+  - **Vulnerability**: By allowing various HTTP methods (GET, POST, OPTIONS, HEAD), particularly OPTIONS, an attacker can discover potential points of interaction with the server that might be vulnerable.
+  - **Impact**: OPTIONS method reveals the HTTP methods that the server supports on a particular URL, which can aid an attacker in crafting specially designed requests that could exploit other vulnerabilities.
+
+### Mitigation Strategies
+
+- **Configure HTTP Headers**:
+  - **X-Frame-Options**: Set this to "SAMEORIGIN" or "DENY" to prevent your site from being framed by other sites. This can be configured in your Apache or Nginx configuration file.
+    ```apache
+    Header always append X-Frame-Options SAMEORIGIN
+    ```
+  - **X-Content-Type-Options**: Set this to "nosniff" to prevent MIME-sniffing.
+    ```apache
+    Header set X-Content-Type-Options nosniff
+    ```
+
+- **Secure ETags**:
+  - Modify the Apache configuration to either not use ETags or configure them not to leak inode information.
+    ```apache
+    FileETag None
+    ```
+
+- **Restrict HTTP Methods**:
+  - Restrict the use of HTTP methods to only those necessary for your application. This can be done via server configuration.
+    ```apache
+    <LimitExcept GET POST>
+      Order Deny,Allow
+      Deny from all
+    </LimitExcept>
+    ```
+
+Implementing these mitigations will help secure your server against the vulnerabilities identified in the Nikto scan, enhancing the overall security posture of your system.
+
+The Nikto scan results on your Damn Vulnerable Web Application (DVWA) have revealed several vulnerabilities and misconfigurations. Let's discuss how each could potentially be exploited:
+
+### 1. **Missing HTTP Headers**
+
+- **X-Frame-Options**:
+  - **Attack Type**: Clickjacking
+  - **Exploitation**: An attacker can create a malicious web page that frames the vulnerable site and tricks a user into clicking on something that performs actions on their behalf, like changing a password or making a transaction.
+  - **Demonstration**: Embed the DVWA page in an `<iframe>` on a malicious page with buttons overlaid to mislead the user.
+
+- **X-Content-Type-Options**:
+  - **Attack Type**: MIME Sniffing
+  - **Exploitation**: An attacker can serve a script that the browser might execute under the guise of a different MIME type. For example, disguising malicious JavaScript code as an image file that gets executed when loaded by the browser.
+  - **Demonstration**: Serve a file with JavaScript code but declare it as an image or another benign type in an environment that ignores the server-provided MIME type.
+
+### 2. **Server and Directory Information**
+
+- **Directory Indexing**:
+  - **Attack Type**: Information Disclosure
+  - **Exploitation**: An attacker can browse various directories to find sensitive files, backup files, or configuration scripts that could give further access or sensitive data.
+  - **Demonstration**: Access these directories through the browser to display their contents and identify potential files for further attacks.
+
+### 3. **Git Repository Exposure**
+
+- **.git Exposure**:
+  - **Attack Type**: Repository Cloning
+  - **Exploitation**: An attacker can clone the entire repository from the exposed .git directory to analyze the application’s source code offline. This can reveal sensitive information, historical changes, or other vulnerabilities.
+  - **Demonstration**: Use tools like GitTools to clone the repository via the exposed .git directory from the web server.
+
+### 4. **PHP Details Exposure**
+
+- **/DVWA/phpinfo.php**:
+  - **Attack Type**: Information Disclosure
+  - **Exploitation**: An attacker accesses the `phpinfo.php` page to gather detailed information about the server's PHP environment, configuration settings, and installed modules. This information can be used to tailor further attacks.
+  - **Demonstration**: Directly access the `phpinfo.php` page and use the information to plan exploits specific to the server's PHP configuration and versions.
+
+### 5. **Docker File Exposure**
+
+- **.dockerignore File**:
+  - **Attack Type**: Configuration Disclosure
+  - **Exploitation**: Reviewing the `.dockerignore` file can inform an attacker about the structure of Docker deployments and potential files that are considered sensitive (hence ignored during Docker builds). This might help in identifying files that are not included in the Docker image but exist on the server.
+  - **Demonstration**: Access the `.dockerignore` file to understand the directory structure and sensitive files, helping to guide further explorations or exploitation attempts.
+
+### Mitigation Strategies:
+
+To defend against these attacks:
+- Implement proper HTTP headers for security (e.g., `X-Frame-Options: DENY`, `X-Content-Type-Options: nosniff`).
+- Disable directory listing in the web server's configuration.
+- Secure the .git directory either by restricting access through web server configuration or by ensuring it is not uploaded to production environments.
+- Restrict access to sensitive files like `phpinfo.php` through access control mechanisms or by removing them from production servers.
+- Secure configuration files and ensure files like `.dockerignore` are not accessible from the web.
+
+By understanding these vulnerabilities and potential exploits, you can better secure your applications against common web attacks.
+
+</details>
+
+## Steps taken to secure Metasploit2 security headers
+
+<details>
+  <summary>Click for Details</summary>
+
+#### Short Version
+
+Here's a concise cheat sheet for securing Apache headers and configurations on Metasploitable2, suitable for quick reference:
+
+### Apache Security Hardening Cheat Sheet for Metasploitable2
+
+#### **Edit Apache Configuration**
+- **Open Config File**: `sudo vim /etc/apache2/apache2.conf`
+
+#### **Insert Security Configurations**
+```apache
+# Prevent clickjacking attacks
+Header always append X-Frame-Options SAMEORIGIN
+
+# Prevent MIME type sniffing
+Header set X-Content-Type-Options nosniff
+
+# Disable ETags to prevent inode info leakage
+FileETag None
+
+# Restrict HTTP methods to only necessary ones
+<Directory /var/www/>
+    Order Deny,Allow
+    Deny from all
+    Allow from all
+    <LimitExcept GET POST>
+        Deny from all
+    </LimitExcept>
+</Directory>
+```
+
+#### **Save and Exit**
+- **Command**: `:wq` in vim after editing.
+
+#### **Restart Apache**
+- **Command**: `sudo service apache2 restart`
+
+#### **Validate Changes**
+- **Check Headers**: `curl -I http://localhost`
+- **Check HTTP Methods**: `curl -X OPTIONS http://localhost -i`
+
+#### **Troubleshooting**
+- **Configuration Test**: `sudo apache2ctl configtest`
+- **View Error Logs**: `sudo cat /var/log/apache2/error.log`
+- **Restart Command**: If `service` fails, use `sudo /etc/init.d/apache2 restart`
+
+This cheat sheet provides all the necessary commands and configurations to enhance the security of your Apache installation on Metasploitable2, consolidating multiple steps into an easy-to-follow guide.
+
+#### Long Version
+To address and mitigate the vulnerabilities identified by Nikto on your Metasploitable2 system regarding insecure HTTP headers and server configurations, follow these streamlined and structured steps:
+
+### Step-by-Step Guide to Secure HTTP Headers in Apache on Metasploitable2
+
+#### **1. Access the Apache Configuration File**
+- **Location**: Typically located at `/etc/apache2/apache2.conf`.
+- **Tool**: Use vim to edit, command: `sudo vim /etc/apache2/apache2.conf`.
+
+#### **2. Configure Security Headers**
+- **X-Frame-Options**:
+  - **Purpose**: Prevent clickjacking attacks.
+  - **Code**:
+    ```apache
+    Header always append X-Frame-Options SAMEORIGIN
+    ```
+- **X-Content-Type-Options**:
+  - **Purpose**: Prevent MIME type sniffing that can lead to XSS attacks.
+  - **Code**:
+    ```apache
+    Header set X-Content-Type-Options nosniff
+    ```
+
+#### **3. Disable ETags**
+- **Purpose**: Prevent information leakage through ETags.
+- **Code**:
+  ```apache
+  FileETag None
+  ```
+
+#### **4. Restrict HTTP Methods**
+- **Purpose**: Limit potential attack vectors by restricting the types of allowed HTTP methods.
+- **Code**:
+  ```apache
+  <LimitExcept GET POST>
+    Order Deny,Allow
+    Deny from all
+  </LimitExcept>
+  ```
+
+#### **5. Apply Changes and Restart Apache**
+- **Command**: Restart Apache to ensure changes take effect.
+  ```bash
+  sudo service apache2 restart
+  ```
+
+### Validation Steps
+- **Check Headers**: Use `curl` to validate the headers are being set correctly.
+  ```bash
+  curl -I http://localhost
+  ```
+- **Check HTTP Methods**: Use tools like `nmap` or manual `curl` commands to verify restricted methods.
+  ```bash
+  curl -X OPTIONS http://localhost -i
+  ```
+
+### Troubleshooting Guide
+
+#### **Common Problems and Solutions**
+
+1. **Apache Fails to Restart**
+   - **Symptom**: Apache does not start after changes.
+   - **Check**: Validate configuration with `apache2ctl configtest`.
+   - **Fix**: Correct any reported errors and retry starting Apache.
+
+2. **Headers Not Applied**
+   - **Symptom**: Security headers are not reflected in HTTP responses.
+   - **Check**: Confirm headers are added in the correct sections (`<VirtualHost>`, `<Directory>`, or global).
+   - **Fix**: Adjust placement or syntax of header directives.
+
+3. **Permission Issues**
+   - **Symptom**: Cannot write to Apache config files.
+   - **Check**: File ownership and permissions with `ls -l /etc/apache2/apache2.conf`.
+   - **Fix**: Use `sudo` to edit files or change permissions appropriately.
+
+#### **Validation After Fixes**
+- **Repeat Validation Steps**: After applying fixes, always re-run the validation steps to ensure the issue is resolved.
+- **Monitor Logs**: Keep an eye on `/var/log/apache2/error.log` for any recurring or new errors.
+
+By following these steps and utilizing the troubleshooting guide, you can efficiently secure your Apache server against the vulnerabilities detected by Nikto and ensure your configurations are effective and robust.
+
+</details>
+
+## Steps to start up DVWA aftet it is installed on Kali
+
+<details>
+  <summary>Click for Details</summary>
+
+
+
+</details>
+
 ## Steps to start up DVWA aftet it is installed on Kali
 
 <details>
