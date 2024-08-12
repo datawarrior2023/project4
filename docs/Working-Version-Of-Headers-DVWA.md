@@ -514,7 +514,7 @@ By understanding these vulnerabilities and potential exploits, you can better se
 
 </details>
 
-## Reults of Nikto Scan and Findings From DVWA
+## Results of Nikto Scan and Findings From DVWA
 
 <details>
   <summary>Click for Details</summary>
