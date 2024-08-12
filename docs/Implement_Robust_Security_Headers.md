@@ -2,7 +2,7 @@
 
 Implementing these strategies would indeed help reduce the potential for exploits and the overall attack surface of your server. Here's a breakdown of how these strategies specifically address vulnerabilities that Nikto and similar tools might detect, along with how security analysts typically use such tools:
 
-### The Main Pillars for Mitigation Strategies in relastion to **Nikto**
+### The Main Pillars for Mitigation Strategies in relastion to **Nikto** and its Associated Vulnerablities
 
 <details>
   <summary>Expand for details</summary>
