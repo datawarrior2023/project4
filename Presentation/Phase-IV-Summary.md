@@ -88,6 +88,9 @@ Closing our quartet, **Jamie Ruth**, Operations Support & Project Manager, who s
 
 🚀 As we delve into the realms of cybersecurity, remember that each vulnerability addressed and each measure implemented fortifies our collective digital fortresses. So, let’s gear up, enhance our protective measures, and turn potential threats into victories for security.
 
+**Table of Contents**
+🔍 "In the spirit of cybersecurity, our Table of Contents is like a secure password: complex, essential, and a gateway to more secrets! It’s a concise roadmap through our project’s phases—from the basics of Nikto to securing digital realms. But enough with the sneak peeks, let's dive into the deep end with Maryna, our foundational expert, who will set the stage for what Nikto is all about!"
+
 **Slide 1: Key Takeaways**
 "Alright everyone, as we wrap up today's journey through the labyrinth of cybersecurity with Nikto, let’s quickly recap what we've learned. 🌟 We've navigated through the treacherous waters of XSS, dived deep into the abyss of SQL injections, and scaled the walls of command injections. It's like we've been digital ghostbusters, identifying and trapping threats that haunt our applications. 🌟 Remember, the tools and strategies we discussed are your proton packs in this ghost-filled digital world. Ensuring your web applications are secure isn't just a one-time deal—it's a continuous process of improvement and vigilance."
 
