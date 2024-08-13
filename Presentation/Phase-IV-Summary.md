@@ -60,6 +60,22 @@ Here's the revised script with indicated breakpoints using emojis to signify a p
 
 ---
 
+**Introducing the Team**
+
+"Welcome, cyber sentinels and guardians of the grid, to a pivotal gathering in our digital defense journey—the **Nikto CyberShield Initiative: Fortifying the Digital Frontier**. Today, we showcase not just tools but transformational strategies forged in the crucible of cybersecurity challenges.
+
+🌟 **Introducing the Vanguard of Cybersecurity:**
+
+At the forefront, **Maryna Yaroshenko**, our expert in Historical & Foundational Cybersecurity. Maryna led the **Foundations of Nikto** section, exploring the development and evolution of Nikto from its inception to its current role as a critical tool in cybersecurity defense.
+
+Next, **Chet Flowers**, our adept Technical Researcher for Malicious Use & Payloads, took the helm in the **Nikto Real-Time Attack Simulations**. Chet demonstrated the practical application of Nikto in unveiling and understanding web application vulnerabilities, offering a live-action view into the anatomy of cyber threats.
+
+🌟 Steering our **Countermeasure Strategies**, **Joshua Dyke**, our meticulous Mitigation Strategist, utilized Nikto to identify and then rigorously address vulnerabilities during the **Nikto Mitigation Demonstrations**. His work provided practical and strategic insights into securing systems against the vulnerabilities that Nikto reveals.
+
+Closing our quartet, **Jamie Ruth**, Operations Support & Project Manager, who synthesized our findings in the **Continual Vigilance Summary**. Jamie emphasized the importance of ongoing vigilance and education in cybersecurity, integrating operational management with proactive defense measures.
+
+🌟 Together, these trailblazers not only uncover the depths of digital threats with Nikto but also fortify our defenses against them.
+
 **Problem Statement & Goal**
 
 🎤 "Ladies and gentlemen, imagine our digital world as a vast ocean—beautiful but filled with hidden dangers. Today, we're about to embark on an educational voyage, navigating through the treacherous waters of cybersecurity vulnerabilities. 🚢
