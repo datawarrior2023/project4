@@ -1,5 +1,11 @@
 ### Slide Outline for Nikto Introduction
 
+In this phase, the presentation delves into the background, features, and development of Nikto. It explains why Nikto is a valuable tool for security professionals by comparing its capabilities with other competitive tools like OWASP ZAP, Burp Suite, Acunetix, and Nessus. The strengths, key features, and specific use cases of Nikto are highlighted to showcase its importance in security testing.
+
+### Slide Format and Content
+
+<details>
+  
 #### Slide 1: Title Slide
 - **Content Type:** Title and Image
 - **Details:**
@@ -62,13 +68,13 @@
 - **Image:** Create an infographic that visually represents the three key features. The infographic could show a globe for community updates, a computer screen with code for automated scanning, and icons of different operating systems for cross-platform compatibility.
 - **Design Tips:** Use a clean layout with plenty of white space to enhance readability. Employ consistent color schemes that align with cybersecurity themes (e.g., blues, grays, and greens).
 
----
+</details>
 
 ## Script
 ### Presentation Script for Introduction to Nikto
 
----
-
+<details>
+  
 **Slide 1: Title Slide**
 - "Good [morning/afternoon], everyone! I’m [Your Name], and today I'm excited to guide you through the world of Nikto, a crucial tool for enhancing web server security. So, let’s dive right into the digital deep to fish out some vulnerabilities!"
 
@@ -102,6 +108,4 @@
 - "In conclusion, Nikto offers a robust, community-driven approach to securing web servers, crucial for any business’s digital health. It’s quick, it’s thorough, and best of all, it’s on the house! So, why not make it part of your cybersecurity toolkit?"
 - "Thank you for your time today. I look forward to answering any questions you might have!"
 
----
-
-This script blends technical information with layman terms and a touch of humor to keep the presentation engaging for all audience members at the BootCon.
+</details>
