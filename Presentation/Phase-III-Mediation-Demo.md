@@ -102,4 +102,97 @@
 
 </details>
 
-### Phase III: Analysis & Prevention of Nikto Attacks - Slide and Script Preparation (ALTERNATE VERSION)
+## Phase III: Analysis & Prevention of Nikto Attacks - Slide and Script Preparation (ALTERNATE VERSION)
+
+### Slide Content and Demo
+
+<details>>
+
+### Phase III: Analysis & Prevention of Nikto Attacks - Slide Content Descriptions
+
+**Slide 1: Introduction to Security Headers**
+- **Title:** Embracing Real-World Security: Why We Need Security Headers
+- **Bullets:**
+  - Introduction to the shift from DVWA to a real-world scenario with Metasploit2.
+  - The role of security headers in safeguarding web applications.
+- **Image Description:** An illustration of a digital shield with icons representing different security headers like helmets, providing a metaphor for protection.
+
+**Slide 2: Understanding the Risks of Misconfigured Headers**
+- **Title:** The Hidden Dangers of Ignoring Security Headers
+- **Bullets:**
+  - Detailed explanation of risks associated with not implementing X-Frame-Options and X-Content-Type-Options.
+  - Examples of clickjacking and MIME sniffing attacks.
+- **Image Description:** A graphic showing a website as a fortress with open gates, illustrating how vulnerabilities allow threats to enter.
+
+**Slide 3: Securing Headers to Mitigate Attacks**
+- **Title:** Locking Down Our Digital Fortresses
+- **Bullets:**
+  - How setting X-Frame-Options prevents framing attacks.
+  - The importance of 'nosniff' in X-Content-Type-Options to block MIME type sniffing.
+- **Image Description:** Visuals of a digital lock securing a window (X-Frame-Options) and a nose with a cross through it (nosniff), symbolizing protection mechanisms.
+
+**Slide 4: Case Study: Real-World Application**
+- **Title:** Practical Application: Securing Metasploit2
+- **Bullets:**
+  - Recap of previous Nikto findings on Metasploit2.
+  - Steps taken to secure headers and improve server security.
+- **Image Description:** A flowchart showing the process from scanning with Nikto to implementing security headers, emphasizing practical steps.
+
+**Slide 5: Demonstration of Security Improvement**
+- **Title:** Live Demo: Strengthening Our Security Setup
+- **Bullets:**
+  - Live demonstration of updating header configurations.
+  - Restarting the server and implementing changes.
+- **Image Description:** Screenshots of command line actions, demonstrating the configurations and server restart process.
+
+**Slide 6: Verifying Improvements**
+- **Title:** Testing Our Security Measures
+- **Bullets:**
+  - Using curl to verify header changes.
+  - Side-by-side comparison of Nikto scans before and after security enhancements.
+- **Image Description:** Split-screen images showing command line outputs before and after the changes, highlighting the differences.
+
+**Slide 7: Discussion on the Wider Impacts of These Vectors**
+- **Title:** Beyond the Basics: Wider Impacts of Security Headers
+- **Bullets:**
+  - Discussion on how properly configured headers can prevent a range of attacks.
+  - The broader importance of security headers in maintaining integrity and user trust.
+- **Image Description:** A panoramic view of a digital cityscape with and without security measures, illustrating the overall impact of robust security practices.
+
+These slides are designed to guide the audience through understanding the necessity of security headers, demonstrating their implementation, and verifying their effectiveness, all while connecting to the broader context of real-world cybersecurity practices.
+
+</details>
+
+### Presentation Script
+
+<details>
+
+**Updated Opening Script for BootCon: Phase III - Analysis & Prevention of Nikto Attacks**
+
+---
+
+**Slide 1: Introduction to Security Headers**
+"Good morning, everyone! As we transition from discussing DVWA mediation strategies, today we're diving into a more realistic scenario. We're moving our focus to applying real-world security measures on Metasploit2, a setup that more closely mirrors what you might encounter in the wild. Now, you might wonder, 'How significant can a simple thing like security headers really be?' Well, consider this: heading into battle without a helmet isn’t the wisest move, right? Security headers are just like that helmet for your website, shielding you from a myriad of cyber threats that could knock you down before you even see them coming."
+
+**Slide 2: Understanding the Risks of Misconfigured Headers**
+"Let’s unpack the dangers of not using X-Frame-Options and X-Content-Type-Options. Without these, your website is like a city with open gates. Clickjacking attacks could trick your users into unknowingly interacting with your site. Imagine your user trying to play a harmless game of 'Whack-a-Mole' but ending up whacking their security instead! Similarly, MIME Sniffing vulnerabilities turn your website into a masquerade ball, where harmful scripts wear the disguise of benign files, leading to XSS attacks. It’s a party you don’t want to attend."
+
+**Slide 3: Securing Headers to Mitigate Attacks**
+"Preventing these vulnerabilities isn't just a checkbox in security protocols; it's a foundational strategy to fortify your defenses. By setting the X-Frame-Options, we stop malicious framing attempts in their tracks. Think of it as putting a lock on your digital windows. Then, with X-Content-Type-Options set to 'nosniff', we ensure that browsers aren’t tricked into executing disguised harmful scripts. It’s like telling your browser not to take candy from strangers."
+
+**Slide 4: Case Study: Real-World Application**
+"Let’s look at how these headers function in a real-world scenario by revisiting our Metasploit2 setup. Previously, we explored potential vulnerabilities with Nikto, and now, we’re applying our theoretical armor in practice. By adjusting these headers, we’ve effectively sealed off pathways that could lead to significant security breaches. It’s like upgrading from a wooden shield to a titanium one."
+
+**Slide 5: Demonstration of Security Improvement**
+"Watch closely as I demonstrate the configuration changes on Metasploit2. Notice the commands on the screen? Each one is a stroke of our cybersecurity paintbrush, creating a masterpiece of protection. And after we restart the server, it's like watching our digital fortress raise its drawbridge against attacks."
+
+**Slide 6: Verifying Improvements**
+"Now, let’s not just pat ourselves on the back yet. Validation is key. We’ll use curl to inspect our headers from Kali and run a Nikto scan to see the contrast. It’s like checking for leaks after patching a roof—you want to ensure no water gets through when the next storm hits."
+
+**Slide 7: Discussion on the Wider Impacts of These Vectors**
+"As we wrap up, remember, focusing on security headers isn't just about blocking a few attacks; it’s about setting a standard of security that resonates across all facets of your digital presence. From preventing clickjacking, which could trick your CEO into ordering a thousand pizzas, to stopping code injections that could turn your database into a disco ball of unwanted queries, these headers safeguard your information integrity and user trust."
+
+**Conclusion:**
+"In conclusion, while we've zoomed in on headers today, this is just one segment of the vast cybersecurity landscape we must navigate. By securing our headers, we not only enhance our defense against specific attacks but also strengthen our overall security posture, ensuring our applications perform as intended—safe and sound. Thank you for staying vigilant and joining me in this crucial discussion. Let’s continue to armor up and protect our digital realms!"
+
+</details>
