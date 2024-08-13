@@ -1,4 +1,5 @@
-## Suggestions for content
+**Phase II: Demonstrating Vulnerabilities with Nikto**
+- Phase II is a practical demonstration using Nikto to scan the Damn Vulnerable Web Application (DVWA) hosted on Kali Linux. This phase outlines the setup of DVWA, the execution of a Nikto scan, and the analysis of findings which include vulnerabilities like XSS, SQL Injection, and Command Injection. This phase aims to show how Nikto can be used to identify and analyze common web vulnerabilities in a safe and controlled environment.
 
 <details>
 
