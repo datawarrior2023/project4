@@ -78,15 +78,15 @@ Closing our quartet, **Jamie Ruth**, Operations Support & Project Manager, who s
 
 **Problem Statement & Goal**
 
-🎤 "Ladies and gentlemen, imagine our digital world as a vast ocean—beautiful but filled with hidden dangers. Today, we're about to embark on an educational voyage, navigating through the treacherous waters of cybersecurity vulnerabilities. 🚢
+🎤 "Hackers and defenders, welcome to a deep dive into the intricate world of cybersecurity vulnerabilities. Today, we stand at the front lines of digital defense, ready to navigate the complex threats that permeate our networks.
 
-🌐 **Problem Statement:** The seas are rough! Our ships—our web applications—are constantly under threat from pirates... ahem, I mean hackers! Whether it’s someone trying to sneak malware onto your ship or trying to steal your treasure chest of data, the threats are real and ever-present. 
+🌐 Problem Statement: In our connected world, our systems and applications are under relentless attack. These digital battlegrounds are swarmed by adversaries aiming to exploit vulnerabilities for malicious gain.
 
-🎯 **Goal:** So, what’s our plan? We’re going to harness the power of an incredible tool—**Nikto**—our trusty cyber compass. Our mission? To not just identify the leaks and cracks in our ship's hull but to fix them! We'll enhance our understanding of these vulnerabilities, learn to patch them up, and ensure our ship is not just floating but sailing splendidly towards a safer horizon. 
+🎯 Goal: Our objective is clear—deploy Nikto, our sophisticated tool of choice, to unearth and remedy these vulnerabilities. We aim to not just identify but thoroughly fortify our defenses against these relentless attacks.
 
-🔍 Using Nikto, we’ll scan our applications to uncover any vulnerabilities—think of it as checking for holes in our ship. Then, we’ll steer towards mastering mitigation techniques. This isn't just about patching up holes; it's about reinforcing our ship, making it robust and resilient against those pesky pirate attacks. 
+🔍 With Nikto at our disposal, we will scan our systems, exposing any security flaws that could be exploited by attackers. We will then transition into developing robust mitigation strategies to shield our networks.
 
-🚀 And remember, in the vast ocean of cybersecurity, every patch you apply, every scan you run, makes the digital seas a bit safer for everyone. So, let’s set sail, keep our tools sharp, and our eyes on the horizon. Who's ready to dive into the deep with me and turn these threats into tales of triumph?"
+🚀 As we delve into the realms of cybersecurity, remember that each vulnerability addressed and each measure implemented fortifies our collective digital fortresses. So, let’s gear up, enhance our protective measures, and turn potential threats into victories for security.
 
 **Slide 1: Key Takeaways**
 "Alright everyone, as we wrap up today's journey through the labyrinth of cybersecurity with Nikto, let’s quickly recap what we've learned. 🌟 We've navigated through the treacherous waters of XSS, dived deep into the abyss of SQL injections, and scaled the walls of command injections. It's like we've been digital ghostbusters, identifying and trapping threats that haunt our applications. 🌟 Remember, the tools and strategies we discussed are your proton packs in this ghost-filled digital world. Ensuring your web applications are secure isn't just a one-time deal—it's a continuous process of improvement and vigilance."
